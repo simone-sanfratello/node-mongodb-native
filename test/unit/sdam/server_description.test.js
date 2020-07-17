@@ -2,8 +2,8 @@
 const { ServerDescription } = require('../../../src/sdam/server_description');
 const expect = require('chai').expect;
 
-describe('ServerDescription', function() {
-  describe('error equality', function() {
+describe('ServerDescription', function () {
+  describe('error equality', function () {
     [
       {
         description: 'equal error types and messages',
@@ -36,7 +36,7 @@ describe('ServerDescription', function() {
         equal: false
       }
     ].forEach(test => {
-      it(test.description, function() {
+      it(test.description, function () {
         expect(test.lhs.equals(test.rhs)).to.equal(test.equal);
       });
     });

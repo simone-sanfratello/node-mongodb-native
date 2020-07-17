@@ -757,10 +757,10 @@ class Topology extends EventEmitter {
 
 Object.defineProperty(Topology.prototype, 'clusterTime', {
   enumerable: true,
-  get: function() {
+  get: function () {
     return this.s.clusterTime;
   },
-  set: function(clusterTime: any) {
+  set: function (clusterTime: any) {
     this.s.clusterTime = clusterTime;
   }
 });
@@ -1079,7 +1079,7 @@ function makeCompressionInfo(options: any) {
   }
 
   // Check that all supplied compressors are valid
-  options.compression.compressors.forEach(function(compressor: any) {
+  options.compression.compressors.forEach(function (compressor: any) {
     if (compressor !== 'snappy' && compressor !== 'zlib') {
       throw new Error('compressors must be at least one of snappy or zlib');
     }
@@ -1095,7 +1095,7 @@ const RETRYABLE_WIRE_VERSION = 6;
  *
  * @param {Mongos|Replset} topology
  */
-const isRetryableWritesSupported = function(topology: any) {
+const isRetryableWritesSupported = function (topology: any) {
   const maxWireVersion = topology.lastIsMaster().maxWireVersion;
   if (maxWireVersion < RETRYABLE_WIRE_VERSION) {
     return false;

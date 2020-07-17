@@ -333,9 +333,7 @@ function indexInformation(db: any, name: string, options?: any, callback?: Funct
  */
 function profilingInfo(db: any, options?: object, callback?: Function) {
   try {
-    db.collection('system.profile')
-      .find({}, options)
-      .toArray(callback);
+    db.collection('system.profile').find({}, options).toArray(callback);
   } catch (err) {
     return callback!(err, null);
   }
