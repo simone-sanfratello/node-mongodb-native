@@ -258,4 +258,12 @@ tests:
         auth: ~
         options: ~
 
-    
+    -
+        description: "Password containing an escaped colon"
+        uri: "mongodb://user:pass%3Aword@localhost"
+        valid: false
+        warning: ~
+        hosts: ~
+        auth: ~
+        options: ~
+  

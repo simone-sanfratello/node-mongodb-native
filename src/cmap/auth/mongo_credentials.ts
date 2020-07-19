@@ -97,6 +97,7 @@ class MongoCredentials {
    */
   resolveAuthMechanism(ismaster?: object): MongoCredentials {
     // If the mechanism is not "default", then it does not need to be resolved
+    console.log('setup credentials')
     if (this.mechanism.match(/DEFAULT/i)) {
       return new MongoCredentials({
         username: this.username,

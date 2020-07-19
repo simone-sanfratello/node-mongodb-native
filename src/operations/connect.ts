@@ -235,6 +235,7 @@ function connect(mongoClient: any, url: any, options: any, callback: Function) {
       return callback(new Error('connection string must contain at least one seed host'));
     }
 
+    console.log('parsed auth')
     if (_finalOptions.auth && !_finalOptions.credentials) {
       try {
         didRequestAuthentication = true;

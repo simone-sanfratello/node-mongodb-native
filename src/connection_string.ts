@@ -391,8 +391,11 @@ function applyAuthExpectations(parsed: any) {
     }
 
     if (authMechanism === 'PLAIN') {
+      console.log('authMecanisc=PLAIN')
       if (parsed.auth && parsed.auth.db == null) {
         parsed.auth = Object.assign({}, parsed.auth, { db: '$external' });
+        console.log(qs.escape(parsed.auth.username))
+        console.log(qs.escape(parsed.auth.password))
       }
     }
   }
@@ -635,6 +638,9 @@ function parseConnectionString(uri: string, options?: any, callback?: any) {
     if (parsedOptions.password) auth.password = parsedOptions.password;
   }
 
+console.log('******')
+console.log(cap)
+
   if (cap[4].split('?')[0].indexOf('@') !== -1) {
     return callback(new MongoParseError('Unescaped slash in userinfo section'));
   }
@@ -658,6 +664,7 @@ function parseConnectionString(uri: string, options?: any, callback?: any) {
       return callback(new MongoParseError('Invalid empty username provided'));
     }
 
+    console.log('unescape auth')
     if (!auth.username) auth.username = qs.unescape(authParts[0]);
     if (!auth.password) auth.password = authParts[1] ? qs.unescape(authParts[1]) : null;
   }
